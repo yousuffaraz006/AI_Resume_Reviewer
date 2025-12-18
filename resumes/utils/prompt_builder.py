@@ -2,9 +2,10 @@ from .role_profiles import ROLE_PROFILES
 
 
 def build_prompt(resume_text, role):
-    profile = ROLE_PROFILES[role]
-
-    return f"""
+  profile = ROLE_PROFILES.get(role)
+  if not profile:
+    raise ValueError(f"Unsupported role: {role}")
+  return f"""
 You are a senior technical recruiter and hiring engineer.
 
 YOUR FIRST TASK (MANDATORY):
@@ -37,6 +38,11 @@ STRICT RULES (FOR BOTH CASES):
 - No markdown
 - No explanations outside JSON
 - No partial schemas
+
+ATS & CLARITY REQUIREMENTS:
+- For every ATS or clarity issue you identify, include ONE concrete example from the resume text
+- Combine the issue and its example into a single sentence
+- Do NOT list generic advice without evidence
 
 FULL RESUME ANALYSIS JSON FORMAT (ONLY IF is_resume = true):
 

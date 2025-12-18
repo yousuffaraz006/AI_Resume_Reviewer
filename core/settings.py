@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-fbjc3i6c81wuz-vfy!-*-%*k3n32$u496nh^g5s6i0vibwte_(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://AIResumeReviewer.pythonanywhere.com/', 'www.AIResumeReviewer.pythonanywhere.com']
+ALLOWED_HOSTS = ['https://airesumereviewer.pythonanywhere.com/', 'www.airesumereviewer.pythonanywhere.com', 'airesumereviewer.pythonanywhere.com', '127.0.0.1']
 
 
 # Application definition
@@ -121,5 +121,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = '/static/'
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+if DEBUG:
+    STATICFILES_DIRS = [os.path.join(BASE_DIR, 	'resumes/static')]
+else:
+    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+MEDIA_URL = '/images/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')

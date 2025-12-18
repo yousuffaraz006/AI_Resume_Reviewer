@@ -5,6 +5,20 @@ ROLE_CHOICES = [
     ('frontend', 'Frontend Developer'),
     ('fullstack', 'Full Stack Developer'),
     ('intern', 'Intern'),
+    ('data_scientist', 'Data Scientist'),
+    ('product_manager', 'Product Manager'),
+    ('designer', 'Designer'),
+    ('python_developer', 'Python Developer'),
+    ('java_developer', 'Java Developer'),
+    ('mobile_app_developer', 'Mobile App Developer'),
+    ('devops_engineer', 'DevOps Engineer'),
+    ('cloud_engineer', 'Cloud Engineer'),
+    ('ai_ml_engineer', 'AI / ML Engineer'),
+    ('data_analyst', 'Data Analyst'),
+    ('qa_test_engineer', 'QA / Test Engineer'),
+    ('automation_engineer', 'Automation Engineer'),
+    ('site_reliability_engineer', 'Site Reliability Engineer'),
+    ('game_developer', 'Game Developer')
 ]
 
 class ResumeUploadForm(forms.Form):
