@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-fbjc3i6c81wuz-vfy!-*-%*k3n32$u496nh^g5s6i0vibwte_(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://AIResumeReviewer.pythonanywhere.com/', 'www.AIResumeReviewer.pythonanywhere.com']
 
 
 # Application definition
