@@ -1,0 +1,112 @@
+<!-- templates/resumes/review_fragment.html -->
+<div class="container">
+
+    <!-- Header -->
+    <div class="text-center mb-4">
+        <span class="badge badge-success mb-3">✔ Analysis Complete</span>
+        <h2 class="fw-bold mt-3">Resume <span>Analysis</span> Results</h2>
+    </div>
+
+    <!-- Scores -->
+    <div class="card p-4 mb-4">
+        <p class="text-center section-title mb-4">Overall Score</p>
+        <div class="row text-center">
+            <div class="col">
+                <div class="progress-ring" style="--percent:75%;">
+                    <span id="score-overall"></span>
+                </div>
+                <div class="small-muted mt-2">Overall</div>
+            </div>
+            <div class="col">
+                <div class="progress-ring" style="--percent:80%;">
+                    <span id="score-rolefit"></span>
+                </div>
+                <div class="small-muted mt-2">Role Fit</div>
+            </div>
+            <div class="col">
+                <div class="progress-ring" style="--percent:70%;">
+                    <span id="score-clarity"></span>
+                </div>
+                <div class="small-muted mt-2">Clarity</div>
+            </div>
+            <div class="col">
+                <div class="progress-ring" style="--percent:70%;">
+                    <span id="score-impact"></span>
+                </div>
+                <div class="small-muted mt-2">Impact</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Executive Summary -->
+    <div class="card p-4 mb-4">
+        <p class="section-title mb-3">Executive Summary</p>
+        <div class="row">
+            <div class="col-md-4">
+                <p class="text-success fw-semibold">Strengths</p>
+                <p class="small-muted" id="summary-strengths"></p>
+            </div>
+            <div class="col-md-4">
+                <p class="text-warning fw-semibold">Level Estimate</p>
+                <p class="small-muted" id="summary-level"></p>
+            </div>
+            <div class="col-md-4">
+                <p class="text-primary fw-semibold">Role Fit</p>
+                <p class="small-muted" id="summary-role-fit"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Skills & Projects -->
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <div class="card p-4 h-100">
+                <p class="section-title mb-3">Skills Assessment</p>
+                <p class="fw-semibold text-success mb-2">Strong Skills</p>
+                <div id="skills-strong"></div>
+                <p class="fw-semibold text-danger mt-3 mb-2">Areas to Improve</p>
+                <div id="skills-weak"></div>
+                <p class="fw-semibold text-primary mt-3 mb-2">Should Highlight</p>
+                <div id="skills-highlight"></div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card p-4 h-100">
+                <p class="section-title mb-3">Projects & Experience</p>
+                <p class="fw-semibold text-success">Strong Points</p>
+                <p class="small-muted" id="projects-strong"></p>
+                <p class="fw-semibold text-danger mt-2">Areas for Improvement</p>
+                <p class="small-muted" id="projects-weak"></p>
+                <div class="border rounded p-3 mt-3 bg-light">
+                    <p class="fw-semibold mb-1">Suggested Rewrite</p>
+                    <p class="small-muted mb-0" id="projects-rewrite"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ATS -->
+    <div class="card p-4 mb-5">
+        <p class="section-title mb-3">ATS Clarity Analysis</p>
+        <div class="row">
+            <div class="col-md-6">
+                <p class="fw-semibold text-danger">Issues Found</p>
+                <ul class="small-muted" id="ats-issues"></ul>
+            </div>
+            <div class="col-md-6">
+                <p class="fw-semibold text-success">Recommended Improvements</p>
+                <ul class="small-muted" id="ats-improvements"></ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Upload Again -->
+    <div class="text-center">
+        <a href="/" class="btn upload-btn text-white btn-lg">
+            Upload Another Resume
+        </a>
+        <p class="small-muted mt-2">Analyze another resume to get detailed insights</p>
+    </div>
+
+</div>

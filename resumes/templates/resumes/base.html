@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Resume Reviewer</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    >
+    <!-- Google Inter font (optional but matches screenshot) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome (for icons used in upload.html) -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .section-card {
+            border-left: 4px solid #0d6efd;
+        }
+        pre {
+            white-space: pre-wrap;
+            font-family: inherit;
+        }
+
+        body {
+            background: #f6fbf9;
+            font-family: Inter, system-ui, sans-serif;
+        }
+
+        .badge-success {
+            background: #e7f7ef;
+            color: #1fa971;
+            font-weight: 500;
+            border-radius: 50px;
+            padding: 6px 14px;
+        }
+
+        h2 span {
+            color: #1fa971;
+        }
+
+        .card {
+            border-radius: 14px;
+            border: 1px solid #e9f0ee;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.03);
+        }
+
+        .section-title {
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .small-muted {
+            font-size: 0.85rem;
+            color: #7a8b8a;
+        }
+
+        .skill-pill {
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin: 4px;
+        }
+
+        .skill-strong { background: #e9f7f1; color: #1fa971; border: 1px solid #bfe9d7; }
+        .skill-weak { background: #fff0e8; color: #e5533d; border: 1px solid #ffd2c5; }
+        .skill-highlight { background: #f2f6ff; color: #2f5aff; border: 1px solid #ccd8ff; }
+
+        .progress-ring {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: conic-gradient(#1fa971 var(--percent), #e8efed 0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: auto;
+        }
+
+        .progress-ring span {
+            background: #fff;
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .upload-btn {
+            background: #1fa971;
+            border: none;
+            padding: 12px 36px;
+            font-weight: 500;
+        }
+
+        .upload-btn:hover {
+            background: #178b5d;
+        }
+    </style>
+    {% block style %}{% endblock %}
+</head>
+<body>
+
+<!-- <nav class="navbar navbar-dark bg-dark">
+    <div class="container">
+        <span class="navbar-brand mb-0 h1">AI Resume Reviewer</span>
+    </div>
+</nav> -->
+
+<div class="container body-div my-5">
+    {% block content %}{% endblock %}
+</div>
+
+</body>
+</html>

@@ -1,0 +1,441 @@
+{% extends "resumes/base.html" %}
+
+{% block style %}
+<style>
+    :root {
+        --green: #11a056;
+        --green-dark: #0e8a45;
+        --muted: #6b7780;
+        --card-border: #e6eef0;
+        --accent-bg: linear-gradient(120deg, #f7fbf9, #eef7f0);
+        --radius: 18px;
+        font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    .resume-hero {
+        background: var(--accent-bg);
+        border-radius: 20px;
+        min-height: 520px;
+    }
+
+    .container-hero {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    /* Left column */
+    .ai-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: #e9f8ef;
+        color: var(--green-dark);
+        padding: 8px 14px;
+        border-radius: 40px;
+        font-weight: 600;
+        font-size: 0.95rem;
+        width: fit-content;
+        margin-bottom: 18px;
+    }
+
+    .hero-title {
+        font-size: 64px;
+        font-weight: 800;
+        line-height: 0.95;
+        margin: 6px 0 18px 0;
+        color: #071228;
+    }
+
+    .hero-title .green {
+        color: var(--green);
+    }
+
+    .hero-desc {
+        color: var(--muted);
+        font-size: 1.05rem;
+        max-width: 520px;
+        margin-bottom: 26px;
+    }
+
+    /* features */
+    .feature {
+        display: flex;
+        gap: 14px;
+        align-items: flex-start;
+        margin-top: 18px;
+    }
+
+    .feature-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #e8f7ef;
+        color: var(--green-dark);
+        font-size: 18px;
+        flex-shrink: 0;
+        box-shadow: 0 1px 0 rgba(0, 0, 0, 0.02);
+    }
+
+    .feature h6 {
+        margin: 0;
+        font-weight: 700;
+    }
+
+    .feature p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.92rem;
+    }
+
+    /* Right column card */
+    .review-card {
+        border-radius: var(--radius);
+        border: 1px solid var(--card-border);
+        background: #fff;
+        padding: 28px;
+        box-shadow: 0 20px 40px rgba(12, 40, 45, 0.06);
+    }
+
+    /* header small icon */
+    .card-header-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 10px;
+        background: linear-gradient(180deg, var(--green), #0f7a44);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        margin-right: 12px;
+    }
+
+    /* upload box */
+    .upload-box {
+        border-radius: 12px;
+        border: 2px dashed #d8e6ea;
+        padding: 36px 18px;
+        text-align: center;
+        cursor: pointer;
+        transition: box-shadow .15s ease, border-color .15s ease, transform .06s;
+        background: #fff;
+    }
+
+    .upload-box:hover {
+        box-shadow: 0 8px 22px rgba(12, 40, 45, 0.04);
+        border-color: #cfe6e9;
+        transform: translateY(-1px);
+    }
+
+    .upload-box .fa-file-lines {
+        font-size: 28px;
+        color: #96a6ab;
+        background: #f3f7f7;
+        padding: 16px;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 12px;
+    }
+
+    .upload-box p {
+        margin: 0;
+        color: #0b2431;
+        font-weight: 600;
+    }
+
+    .upload-box small {
+        display: block;
+        color: var(--muted);
+        margin-top: 6px;
+        font-weight: 500;
+    }
+
+    /* select styling */
+    .select-role {
+        border-radius: 12px;
+        border: 1px solid #e6eef0;
+        padding: 10px 14px;
+        background: #fff;
+        width: 100%;
+        box-shadow: none;
+        appearance: none;
+    }
+
+    /* review button */
+    .btn-review {
+        background: linear-gradient(90deg, var(--green), #1aa45f);
+        color: #fff;
+        font-weight: 700;
+        border: none;
+        padding: 14px 22px;
+        border-radius: 12px;
+        box-shadow: 0 12px 24px rgba(16, 121, 75, 0.18);
+    }
+
+    .btn-review:hover {
+        background: linear-gradient(90deg, var(--green-dark), #118a48);
+    }
+
+    /* small footer text */
+    .card-note {
+        color: var(--muted);
+        font-size: 0.9rem;
+        text-align: center;
+        margin-top: 12px;
+    }
+
+    /* responsive tweaks */
+    @media (max-width: 991px) {
+        .hero-title {
+            font-size: 44px;
+        }
+
+        .resume-hero {
+            padding: 40px 0;
+        }
+
+        .container-hero {
+            padding: 0 20px;
+        }
+
+        .review-card {
+            margin-top: 28px;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+
+<div class="resume-hero">
+    <div class="container container-hero">
+        <div class="row gx-5 align-items-center">
+
+            <!-- left hero -->
+            <div class="col-lg-6">
+                <div class="ai-badge"><i class="fa-solid fa-rocket"></i> AI-Powered Resume Analysis</div>
+
+                <h1 class="hero-title">Get Your Resume <span class="green">Reviewed</span> Like a Pro</h1>
+
+                <p class="hero-desc">Upload your PDF resume and let our AI analyze it like a recruiter or senior
+                    engineer. Get actionable feedback to land your dream job.</p>
+
+                <div class="mt-4">
+                    <div class="feature mb-3">
+                        <div class="feature-icon"><i class="fa-solid fa-bullseye"></i></div>
+                        <div>
+                            <h6>Role-Specific Analysis</h6>
+                            <p>Get feedback tailored to your target position</p>
+                        </div>
+                    </div>
+
+                    <div class="feature mb-3">
+                        <div class="feature-icon"><i class="fa-solid fa-bolt"></i></div>
+                        <div>
+                            <h6>Instant AI Review</h6>
+                            <p>Receive detailed insights in seconds</p>
+                        </div>
+                    </div>
+
+                    <div class="feature mb-3">
+                        <div class="feature-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                        <div>
+                            <h6>ATS Optimization</h6>
+                            <p>Ensure your resume passes applicant tracking systems</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- right card -->
+            <div class="col-lg-6">
+                <div class="review-card">
+
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="card-header-icon"><i class="fa-solid fa-upload"></i></div>
+                        <div>
+                            <h5 style="margin:0; font-weight:800;">Review Your Resume</h5>
+                            <div style="color:var(--muted); font-weight:600; font-size:0.95rem;">Get AI-powered feedback
+                                instantly</div>
+                        </div>
+                    </div>
+
+                    <!-- form -->
+                    <div>
+                        <form id="resume-form" method="post" enctype="multipart/form-data" novalidate>
+                            {% csrf_token %}
+
+                            <label class="form-label fw-semibold" style="font-weight:700;">Resume (PDF only)</label>
+
+                            {{ form.resume }}
+
+                            <!-- target role -->
+                            <label class="form-label fw-semibold mt-2">Target Job Role</label>
+                            <div class="mb-4">
+                                <!-- render the select from Django form; styled by CSS -->
+                                {{ form.role }}
+                            </div>
+
+                            <!-- error from server -->
+                            {% if error %}
+                            <div class="alert alert-danger" id="error-el">
+                                {{ error }}
+                            </div>
+                            {% endif %}
+
+                            <!-- big review button -->
+                            <div class="d-grid">
+                                <button type="button" id="review-btn" class="btn btn-review btn-lg"
+                                    onclick="reviewResume()">
+                                    Review Resume <i class="fa-solid fa-arrow-right ms-2"></i>
+                                </button>
+                            </div>
+
+                            <div class="card-note mt-3">Your resume is processed securely and never stored permanently.
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+let raw_result = null;
+
+async function reviewResume() {
+    const form = document.getElementById("resume-form");
+    const btn = document.getElementById("review-btn");
+
+    // UI state
+    // document.getElementById("error-el")?.innerHTML = "";
+    btn.disabled = true;
+    btn.innerHTML = 'Analyzing…';
+
+    const formData = new FormData(form);
+
+    try {
+        const resp = await fetch("/review-ajax/", {
+            method: "POST",
+            body: formData
+        });
+
+        const data = await resp.json();
+
+        // Backend-level error (form / AI / server)
+        if (!resp.ok) {
+            console.warn("Backend error:", data);
+            showInlineError(data.error || "Unable to process file.");
+            return;
+        }
+
+        // Frontend guard: HTML must exist
+        if (!data.html) {
+            console.warn("No HTML fragment returned:", data);
+            showInlineError("Unexpected server response.");
+            return;
+        }
+
+        // Store raw result if needed later
+        raw_result = data.review || null;
+
+        // Replace page content with server-rendered fragment
+        document.querySelector(".body-div").innerHTML = data.html;
+
+        // Populate dynamic fields only if they exist
+        hydrateReview(raw_result);
+
+    } catch (err) {
+        // Frontend/network error only
+        console.error("Frontend error:", err);
+        showInlineError("Network error. Please try again.");
+    } finally {
+        btn.disabled = false;
+        btn.innerHTML = 'Review Resume <i class="fa-solid fa-arrow-right ms-2"></i>';
+    }
+}
+
+/* ---------------- Helpers (frontend-only) ---------------- */
+
+function showInlineError(message) {
+    const existing = document.getElementById("frontend-error");
+    if (existing) existing.remove();
+
+    const div = document.createElement("div");
+    div.id = "frontend-error";
+    div.className = "alert alert-danger mt-3";
+    div.innerText = message;
+
+    document.querySelector(".review-card").appendChild(div);
+}
+
+function hydrateReview(review) {
+    if (!review || typeof review !== "object") return;
+
+    // Scores
+    const s = review.scores || {};
+    safeText("score-overall", s.overall);
+    safeText("score-rolefit", s.role_fit);
+    safeText("score-clarity", s.clarity);
+    safeText("score-impact", s.impact);
+
+    // Summary
+    const sum = review.summary || {};
+    safeText("summary-strengths", sum.strengths);
+    safeText("summary-level", sum.level_estimate);
+    safeText("summary-role-fit", sum.role_fit);
+
+    // Skills
+    renderPills("skills-strong", review.skills?.strong, "skill-strong");
+    renderPills("skills-weak", review.skills?.missing_or_weak, "skill-weak");
+    renderPills("skills-highlight", review.skills?.should_highlight, "skill-highlight");
+
+    // Projects
+    const p = review.projects_experience || {};
+    safeText("projects-strong", p.strong_points);
+    safeText("projects-weak", p.weak_points);
+    safeText("projects-rewrite", p.sample_rewrite);
+
+    // ATS
+    renderList("ats-issues", review.ats_clarity?.issues);
+    renderList("ats-improvements", review.ats_clarity?.improvements);
+}
+
+function safeText(id, value) {
+    const el = document.getElementById(id);
+    if (el && value) el.innerText = value;
+}
+
+function renderPills(id, list, cls) {
+    const el = document.getElementById(id);
+    if (!el || !Array.isArray(list)) return;
+    el.innerHTML = "";
+    list.forEach(item => {
+        const span = document.createElement("span");
+        span.className = `skill-pill ${cls}`;
+        span.innerText = item;
+        el.appendChild(span);
+    });
+}
+
+function renderList(id, list) {
+    const el = document.getElementById(id);
+    if (!el || !Array.isArray(list)) return;
+    el.innerHTML = "";
+    list.forEach(item => {
+        const li = document.createElement("li");
+        li.innerText = item;
+        el.appendChild(li);
+    });
+}
+</script>
+
+{% endblock %}
