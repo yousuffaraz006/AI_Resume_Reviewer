@@ -1,4 +1,5 @@
 from django.views.decorators.csrf import csrf_exempt
+from django.template.loader import render_to_string
 from .utils.prompt_builder import build_prompt
 from .utils.pdf_parser import extract_text_from_pdf
 from .utils.ai_client import get_resume_review
@@ -65,12 +66,6 @@ def upload_resume(request):
     return render(request, "resumes/upload.html", {"form": form})
 
 
-
-
-# resumes/views.py  (replace the review_resume_ajax function)
-from django.template.loader import render_to_string
-from django.views.decorators.csrf import csrf_exempt
-from django.http import JsonResponse
 
 @csrf_exempt
 def review_resume_ajax(request):

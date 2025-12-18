@@ -9,7 +9,7 @@ def build_prompt(resume_text, role):
 You are a senior technical recruiter and hiring engineer.
 
 YOUR FIRST TASK (MANDATORY):
-Determine whether the provided text is a professional resume or CV.
+Determine whether the provided text is any kind of resume or CV.
 
 IF THE TEXT IS NOT A RESUME:
 - Return ONLY the following JSON
